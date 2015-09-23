@@ -1,7 +1,7 @@
 {
 	"name": "appc.rss",
 	"description": "Connector for RSS Feeds",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"author": "Dawson Toth",
 	"maintainers": [
 		"Dawson Toth <dtoth@appcelerator.com>"
