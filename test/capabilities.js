@@ -1,6 +1,7 @@
 var should = require('should'),
-	Arrow = require('arrow'),
-	server = new Arrow(),
-	connector = server.getConnector('appc.rss');
+	base = require('./_base'),
+	Arrow = base.Arrow,
+	server = base.server,
+	connector = base.connector;
 
 describe('Connector Capabilities', Arrow.Connector.generateTests(connector, module));
