@@ -9,7 +9,7 @@ def packageVersion = ''
 def changes = ''
 
 timestamps {
-	node('git && grunt') {
+	node('git && (osx || linux)') {
 		stage('Checkout') {
 			checkout scm
 			def packageJSON = jsonParse(readFile('package.json'))
@@ -21,6 +21,7 @@ timestamps {
 		withEnv(["PATH+NODE=${nodeHome}/bin"]) {
 			stage('Dependencies') {
 				sh 'npm install appcelerator'
+				sh 'npm install -g grunt-cli'
 				sh 'npm install'
 				sh './node_modules/.bin/appc logout'
 				sh './node_modules/.bin/appc config set defaultEnvironment preprod'
@@ -30,7 +31,6 @@ timestamps {
 				}
 
 				sh './node_modules/.bin/appc install'
-				sh 'npm test'
 			}
 
 			stage('Build') {
