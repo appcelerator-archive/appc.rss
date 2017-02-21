@@ -17,11 +17,10 @@ timestamps {
 			changes = sh(returnStdout: true, script: "git log `git describe --tags --abbrev=0`..HEAD --oneline | sed 's/\$/\\\\/g'").trim()
 		}
 
-		def nodeHome = tool(name: 'node 6.9.5', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation')
+		def nodeHome = tool(name: 'node 4.7.3', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation')
 		withEnv(["PATH+NODE=${nodeHome}/bin"]) {
 			stage('Dependencies') {
 				sh 'npm install appcelerator'
-				sh 'npm install -g grunt-cli'
 				sh 'npm install'
 				sh './node_modules/.bin/appc logout'
 				sh './node_modules/.bin/appc config set defaultEnvironment preprod'
@@ -34,6 +33,7 @@ timestamps {
 			}
 
 			stage('Build') {
+				sh 'npm install grunt-cli --save-dev'
 				sh 'npm test'
 			}
 
