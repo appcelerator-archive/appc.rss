@@ -7,6 +7,8 @@ timestamps {
 			checkout scm
 		}
 
-		buildConnector()
+		buildConnector {
+			// don't override anything yet
+		}
 	} // node
 } // timestamps
