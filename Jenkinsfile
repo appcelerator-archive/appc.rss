@@ -26,7 +26,8 @@ timestamps {
 				sh './node_modules/.bin/appc config set defaultEnvironment preprod'
 
 				withCredentials([usernamePassword(credentialsId: '65f9aaaf-cfef-4f22-a8aa-b1fb0d934b64', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-					sh './node_modules/.bin/appc login --username "$USER" --password "$PASS" -l trace'
+					//sh './node_modules/.bin/appc login --username "$USER" --password "$PASS" -l trace'
+					sh './node_modules/.bin/appc login --username "hudson@appcelerator.com" --password "7qNwq6RUcNYeCtL" -l trace'
 				}
 
 				sh './node_modules/.bin/appc install'
