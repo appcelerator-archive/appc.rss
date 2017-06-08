@@ -71,5 +71,6 @@ module.exports = {
 		secret: '8oGObBB92TPTcwQg07yOSXWYLS74oHzV', // should be a large unguessable string
 		duration: 86400000, // how long the session will stay valid in ms
 		activeDuration: 300000 // if expiresIn < activeDuration, the session will be extended by activeDuration milliseconds
-	}
+	},
+	port: 8081
 };
