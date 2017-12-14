@@ -19,58 +19,58 @@ module.exports = {
 	// NODE_ENV=production appc run
 	//
 	// production key, this is the key that will be required when you are running in production
-	apikey_production: '6VTOQ3RL1LnVCJP6mhSvhsChQTP20QXT',
+  apikey_production: '6VTOQ3RL1LnVCJP6mhSvhsChQTP20QXT',
 	// development key, this is the key that will be required when you are testing non-production (such as locally)
-	apikey_development: 'PzlsAconu0zbThCtAKdd0SczFXiRiUAS',
+  apikey_development: 'PzlsAconu0zbThCtAKdd0SczFXiRiUAS',
 
 	// by default the authentication strategy is 'basic' which will use HTTP Basic Authorization where the
 	// usename is the key and the password is blank.  the other option is 'apikey' where the value of the
 	// APIKey header is the value of the key.  you can also set this to 'plugin' and define the key 'APIKeyAuthPlugin'
 	// which points to a file or a module that implements the authentication strategy
-	APIKeyAuthType: 'basic',
+  APIKeyAuthType: 'basic',
 
 	// logging configuration
-	logging: {
+  logging: {
 		// location of the logs if enabled
-		logdir: './logs',
+    logdir: './logs',
 		// turn on transaction logs
-		transactionLogEnabled: true
-	},
+    transactionLogEnabled: true
+  },
 
 	// prefix to use for apis
-	apiPrefix: '/api',
+  apiPrefix: '/api',
 
 	// control the settings for the admin website
-	admin: {
+  admin: {
 		// control whether the admin website is available
-		enabled: true,
+    enabled: true,
 		// the prefix to the admin website
-		prefix: '/arrow',
+    prefix: '/arrow',
 		// the prefix for the public apidocs website
-		apiDocPrefix: '/apidoc',
+    apiDocPrefix: '/apidoc',
 		// if you set disableAuth, in production only your API docs will show up
-		disableAuth: false,
+    disableAuth: false,
 		// if you set disableAPIDoc, you APIs docs will not show up (regardless of disableAuth)
-		disableAPIDoc: false,
+    disableAPIDoc: false,
 		// set to true to allow the admin website to be accessed in production. however, you will still need a
 		// login unless disableAuth is false. if you set this to false, the admin website will not be enabled
 		// when in production (still respects enabled above)
-		enableAdminInProduction: true,
+    enableAdminInProduction: true,
 		// set the email addresses you want to enable while in production (assuming enableAdminInProduction=true)
-		validEmails: ["dtoth@appcelerator.com"],
+    validEmails: ['dtoth@appcelerator.com'],
 		// set the organization ids you want to enable while in production (assuming enableAdminInProduction=true)
-		validOrgs: [14301]
-	},
+    validOrgs: [14301]
+  },
 
 	// you can generally leave this as-is since it is generated for each new project you created.
-	session: {
-		encryptionAlgorithm: 'aes256',
-		encryptionKey: 'P31NLXRziSAbZUzp7NrJC1FLhjbb/++DIKJlhPvgdTc=',
-		signatureAlgorithm: 'sha512-drop256',
-		signatureKey: 'Dx5+days3jbje5pg75Cvu4OYhPt2Ed+s85Tj70mumItdCERjFTi1ECpbeakO0pm6oaq9JqvR1zmB/PfcsBFNsQ==',
-		secret: '8oGObBB92TPTcwQg07yOSXWYLS74oHzV', // should be a large unguessable string
-		duration: 86400000, // how long the session will stay valid in ms
-		activeDuration: 300000 // if expiresIn < activeDuration, the session will be extended by activeDuration milliseconds
-	},
-	port: 8081
-};
+  session: {
+    encryptionAlgorithm: 'aes256',
+    encryptionKey: 'P31NLXRziSAbZUzp7NrJC1FLhjbb/++DIKJlhPvgdTc=',
+    signatureAlgorithm: 'sha512-drop256',
+    signatureKey: 'Dx5+days3jbje5pg75Cvu4OYhPt2Ed+s85Tj70mumItdCERjFTi1ECpbeakO0pm6oaq9JqvR1zmB/PfcsBFNsQ==',
+    secret: '8oGObBB92TPTcwQg07yOSXWYLS74oHzV', // should be a large unguessable string
+    duration: 86400000, // how long the session will stay valid in ms
+    activeDuration: 300000 // if expiresIn < activeDuration, the session will be extended by activeDuration milliseconds
+  },
+  port: 8081
+}

@@ -1,7 +1,7 @@
 {
   "name": "appc.rss",
   "description": "Connector for RSS Feeds",
-  "version": "1.0.7",
+  "version": "1.0.7-1",
   "author": {
     "email": "support@axway.com",
     "name": "Axway R&D",
@@ -13,7 +13,9 @@
     "arrow"
   ],
   "files": [
-    "dist"
+    "docs",
+    "dist",
+    "conf"
   ],
   "main": "dist/index.js",
   "repository": {
@@ -68,13 +70,13 @@
     "build:lint": "standard | snazzy",
     "test": "npm run clean:test && cross-env NODE_ENV=test npm run test:unit",
     "test:unit": "tap test/unit/* --bail --coverage-report=html | tap-mocha-reporter spec",
-    "test:integration": "tap test/integration/* --bail --coverage-report=html | tap-mocha-reporter spec",
+    "test:integration": "grunt",
     "posttest": "nyc check-coverage --lines 80 --branches 80 --functions 80 || exit 0",
-    "release:publish": "git add -A && git push origin HEAD:master && git push --tags && npm publish",
-    "release:major": "npm version major && npm run release:publish && git push --follow-tags",
-    "release:minor": "npm version minor && npm run release:publish && git push --follow-tags",
-    "release:patch": "npm version patch && npm run release:publish && git push --follow-tags",
-    "release:prerelease": "npm version prerelease && npm run release:publish && git push --follow-tags",
+    "release:publish": "git add -A && git push origin HEAD:master && git push origin HEAD:master --tags",
+    "release:major": "npm version major && npm run release:publish && git push origin HEAD:master --follow-tags",
+    "release:minor": "npm version minor && npm run release:publish && git push origin HEAD:master --follow-tags",
+    "release:patch": "npm version patch && npm run release:publish && git push origin HEAD:master --follow-tags",
+    "release:prerelease": "npm version prerelease && npm run release:publish && git push origin HEAD:master --follow-tags",
     "release:npm": "curl -X GET http://registry.ecd.axway.int:8081/artifactory/local-npm/$npm_package_name/-/$npm_package_name-$npm_package_version.tgz 2>/dev/null > $npm_package_name-$npm_package_version.tgz && npm publish --registry  https://registry.npmjs.org ./$npm_package_name-$npm_package_version.tgz && rm ./$npm_package_name-$npm_package_version.tgz",
     "security": "npm run security:retire && npm run security:nsp",
     "security:retire": "retire --exitwith 0 --package --jspath ./dist --nodepath ./ --outputformat json --outputpath scan-retire.json",
