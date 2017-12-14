@@ -23,6 +23,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint')
   grunt.loadNpmTasks('grunt-mocha-istanbul')
   grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt')
 
 	// Register tasks.
   grunt.registerTask('default', ['mocha_istanbul:coverage', 'clean'])
